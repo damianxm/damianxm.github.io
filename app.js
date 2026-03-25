@@ -5,10 +5,22 @@ PROJECTS.forEach(p => {
     ? `<img src="${p.image}" alt="${p.title}" loading="lazy" />`
     : `<div class="card-image-placeholder">${p.emoji}</div>`;
 
+  const categoryStrip = `
+    <div class="card-strip">
+      <div class="card-strip-left">
+        ${p.category ? `<span class="strip-category">${p.category}</span>` : ''}
+      </div>
+      <div class="card-strip-right">
+        <h2 class="strip-title">${p.title}</h2>
+      </div>
+      <div class="card-strip-accent"></div>
+    </div>`;
+
   const demoLink = p.demo
     ? `<a href="${p.demo}" class="link-row link-demo" target="_blank">
          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
          <span class="link-label">Live demo</span>
+         <span class="link-sep">—</span>
          <span class="link-url">${p.demo}</span>
        </a>`
     : '';
@@ -31,21 +43,16 @@ PROJECTS.forEach(p => {
   const card = document.createElement('article');
   card.className = 'card';
   card.innerHTML = `
+    ${categoryStrip}
     <div class="card-inner">
       <div class="card-image">
         ${imageBlock}
       </div>
       <div class="card-body">
-        <div class="card-top">
-          ${p.category ? `<span class="card-category">${p.category}</span>` : ''}
-          <h2 class="card-title">${p.title}</h2>
-          <p class="card-desc">${p.desc}</p>
-        </div>
+        <p class="card-desc">${p.desc}</p>
+        ${demoLink ? `<div class="card-links">${demoLink}</div>` : ''}
         <div class="card-stacks">
           ${stacksHTML}
-        </div>
-        <div class="card-links">
-          ${demoLink}
         </div>
       </div>
     </div>
