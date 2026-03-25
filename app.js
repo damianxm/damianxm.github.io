@@ -5,16 +5,12 @@ PROJECTS.forEach(p => {
     ? `<img src="${p.image}" alt="${p.title}" loading="lazy" />`
     : `<div class="card-image-placeholder">${p.emoji}</div>`;
 
-  const categoryStrip = `
-    <div class="card-strip">
-      <div class="card-strip-left">
-        ${p.category ? `<span class="strip-category">${p.category}</span>` : ''}
-      </div>
-      <div class="card-strip-right">
-        <h2 class="strip-title">${p.title}</h2>
-      </div>
-      <div class="card-strip-accent"></div>
-    </div>`;
+  const categoryStrip = p.category
+    ? `<div class="card-strip">
+         <span class="strip-category">${p.category}</span>
+         <div class="card-strip-accent"></div>
+       </div>`
+    : '';
 
   const demoLink = p.demo
     ? `<a href="${p.demo}" class="link-row link-demo" target="_blank">
@@ -49,6 +45,7 @@ PROJECTS.forEach(p => {
         ${imageBlock}
       </div>
       <div class="card-body">
+        <h2 class="card-title">${p.title}</h2>
         <p class="card-desc">${p.desc}</p>
         ${demoLink ? `<div class="card-links">${demoLink}</div>` : ''}
         <div class="card-stacks">

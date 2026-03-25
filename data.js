@@ -1,6 +1,6 @@
 const PROJECTS = [
   {
-    category: "Microservices example",
+    category: "Microservices example with deployment",
     title: "PlanOnMap",
     desc:  "Real-time collaborative map application built on a microservices architecture. It allows users to create new sessions or join existing ones, where they can place markers with descriptions on a shared map and communicate instantly via a real-time chat. The system does not require account registration, as authentication is handled through cookies.",
     image: "",

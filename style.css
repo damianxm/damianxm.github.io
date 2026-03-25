@@ -54,100 +54,71 @@ body {
 }
 
 /* ===== HEADER STRIP ===== */
-/*
-  Grid aligned to card columns: left = image zone, right = body zone.
-  Both share the same treatment — just one unified dark bar at top.
-*/
 .card-strip {
   position: relative;
-  display: grid;
-  grid-template-columns: var(--img-col) 1fr;
-  height: 62px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  height: 58px;
+  padding: 0 1.5rem;
   overflow: hidden;
   border-bottom: 1px solid var(--border);
   background: var(--bg2);
 }
 
-/* dot grid on image zone */
+/* dot grid — full width */
 .card-strip::before {
   content: '';
   position: absolute;
   inset: 0;
-  right: auto;
-  width: var(--img-col);
   background-image: radial-gradient(circle, var(--border2) 1px, transparent 1px);
   background-size: 22px 22px;
   background-position: 11px center;
-  opacity: .3;
+  opacity: .25;
   pointer-events: none;
 }
 
-/* accent underline — image zone, reveals on hover */
+/* accent underline — full width on hover */
 .card-strip-accent {
   position: absolute;
-  bottom: 0; left: 0;
-  width: var(--img-col);
+  bottom: 0; left: 0; right: 0;
   height: 2px;
-  background: linear-gradient(90deg, rgba(255,255,255,.35), transparent);
+  background: linear-gradient(90deg, rgba(255,255,255,.4), transparent 60%);
   opacity: 0;
   transition: opacity .3s;
 }
 .card:hover .card-strip-accent { opacity: 1; }
 
-/* LEFT: category label */
-.card-strip-left {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  padding: 0 1.35rem;
-  gap: .8rem;
-  border-right: 1px solid var(--border);
-}
-
-.card-strip-left::before {
+/* left accent bar */
+.card-strip::after {
   content: '';
-  width: 2px;
-  height: 20px;
-  background: rgba(255,255,255,.3);
-  border-radius: 2px;
-  flex-shrink: 0;
+  position: absolute;
+  left: 0; top: 18%; bottom: 18%;
+  width: 3px;
+  background: rgba(255,255,255,.25);
+  border-radius: 0 2px 2px 0;
 }
 
 .strip-category {
-  font-size: .85rem;
+  position: relative;
+  z-index: 1;
+  font-size: 1rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: .15em;
-  color: rgba(255,255,255,.9);
+  letter-spacing: .18em;
+  color: #fff;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-/* RIGHT: category + title inline */
-.card-strip-right {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  gap: .85rem;
-  padding: 0 1.85rem;
-}
-
-.strip-sep {
-  width: 1px;
-  height: 18px;
-  background: rgba(255,255,255,.2);
-  flex-shrink: 0;
-}
-
-.strip-title {
+/* ===== TITLE in body ===== */
+.card-title {
   font-size: 1.4rem;
   font-weight: 700;
   letter-spacing: -0.025em;
   color: #fff;
-  line-height: 1;
+  line-height: 1.2;
 }
 
 /* ===== IMAGE / BODY GRID ===== */
