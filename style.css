@@ -168,6 +168,7 @@ body {
   font-size: .875rem;
   color: var(--text-muted);
   line-height: 1.85;
+  white-space: pre-line;
 }
 
 /* ===== DEMO LINK ===== */
