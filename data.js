@@ -15,7 +15,7 @@ const PROJECTS = [
       {
         label: "Backend",
         repo:  "https://github.com/damianxm/planonmap-microservices-backend",
-        tags:  ["ASP.NET Core 10", ".NET Aspire", "SignalR", "Entity Framework Core", "PostgreSQL", "RabbitMQ", "MassTransit", "Redis", "YARP", "Docker Compose"],
+        tags:  ["ASP.NET Core 10", ".NET Aspire", "SignalR", "Entity Framework Core", "PostgreSQL", "RabbitMQ", "MassTransit", "Redis", "YARP", "Docker Compose", "xUnit", "NSubstitute"],
       },
       {
         label: "Frontend",
